@@ -3,21 +3,22 @@
 
 generator client {
   provider = "prisma-client-js"
-  previewFeatures = ["referentialIntegrity"]
 }
 
 datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
-  referentialIntegrity = "prisma"
 }
 
 model User {
   id                    String @id @default(auto()) @map("_id") @db.ObjectId
   profile_image         String?
   name                  String
+  last_name             String
   user_name             String @unique
   email                 String
+  phone_code            Int
+  phone_number          Int    @unique
   password              String
   repeatPassword        String
 

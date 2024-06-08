@@ -17,3 +17,9 @@ export const getUserByUsername = (user_name) => {
     where: { user_name },
   });
 };
+
+export const getUserByPhoneNumber = (phone_number) => {
+  return prisma.user.findUnique({
+    where: { phone_number },
+  });
+};
